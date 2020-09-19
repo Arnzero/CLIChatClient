@@ -94,38 +94,11 @@ namespace ChatClient
                     writer.Write(Encoding.UTF8.GetBytes(key));
 
                     //send msg !
-                    Console.WriteLine("> ");
+                    Console.Write(":> ");
                     string msg = Console.ReadLine();
                      writer.Write(IPAddress.HostToNetworkOrder(msg.Length));
                      writer.Write(Encoding.UTF8.GetBytes(msg));
-
-                    /*
-                    int userNameLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
-                    byte[] userNameBytes = reader.ReadBytes(userNameLength);
-                    string userName = Encoding.UTF8.GetString(userNameBytes);
-
-                    int passwordLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
-                    byte[] passwordBytes = reader.ReadBytes(passwordLength);
-                    */
-                    //string password = Encoding.UTF8.GetString(passwordBytes);
-
                     //TODO validate
-
-
-                    // receive expected key
-                    // int accesskeyLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
-                    // string accesskey = Encoding.UTF8.GetString(reader.ReadBytes(accesskeyLength));
-                    //byte[] accesskeyBytes = reader.ReadBytes(accesskeyLength);
-                    // string accesskey = Encoding.UTF8.GetString(accesskeyBytes);
-
-                    /*
-                    byte[] authBytes = Encoding.UTF8.GetBytes(user.AuthString);
-                    writer.Write(IPAddress.HostToNetworkOrder(authBytes.Length));
-                    writer.Write(authBytes);
-                    */
-                    //Console.WriteLine("key is {0},", accesskey);
-
-
                     //TODO: do work!
                 }
             }
@@ -152,17 +125,19 @@ namespace ChatClient
                 writer = new BinaryWriter(stream);
 
                 //if you don't use a using statement, you'll need to flush manually.
-                stream.Flush();
+                //stream.Flush();
             }
             catch(Exception ex)
             {
                 Console.WriteLine("error: {0}", ex.Message);
                 throw ex;
             }
-            while(true)
-            {
+            while (true) { 
+            
                 Console.WriteLine("continousConnection established!\n");
-                //TODO: do work!
+                //TODO: do work!if (tcpClient.Connected)
+
+
 
                 //send ak
                 //send
@@ -180,9 +155,6 @@ namespace ChatClient
                 string message = Encoding.UTF8.GetString(messageBytes);
 
                 Console.WriteLine("{0} says: {1}", userMessage, message);
-
-                
-
             }
         }
 
@@ -196,25 +168,28 @@ namespace ChatClient
             ThreadStart ts = () => { ContinousConnection(address, port, ak); };
             Thread thread = new Thread(ts);
             thread.Start();
+            
 
             //if you want to block until the thread is done, call join. Otherwise, you can
             //just return
             //thread.Join();
+            
+            return;
         }
         static void Main(string[] args)
         {
             //adapt code below for comm on port 3461 auth and 3462 receiver
 
             string address = "hsu.adamcarter.com";
-            // address = "127.0.0.1";
+            //address = "127.0.0.1";
             int portAuth = 3461; //authentication
             int portReci = 3462; //receiver
             int portBroa = 3463; //broadcast
 
 
-            Console.WriteLine("Username: ");
+            Console.Write("Username: ");
             string username = Console.ReadLine();
-            Console.WriteLine("Password: ");
+            Console.Write("Password: ");
             string password = Console.ReadLine();
 
             Console.WriteLine("sending credentials...\n");
@@ -233,27 +208,32 @@ namespace ChatClient
                 ak = SynchronousConnection(address, portAuth, username, password);
                 Console.WriteLine("SUCCESS! accesskey = {0}", ak);
 
-                //here is where we call receiver?
-                SynchronousConnectionToReceiver(address, portReci, username, password, ak);
+                while (true)
+                {
 
-                //address receiver port so we can send messages
-                 SynchronousConnectionToReceiver(address, portReci, username, password,ak);
+                    //address receiver port so we can send messages
+                    SynchronousConnectionToReceiver(address, portReci, username, password, ak);
 
-                //broadcast messages here
-                 ContinousConnection(address, portBroa, ak);
+                    //broadcast messages here
+                    ContinousConnection(address, portBroa, ak);
+                }
 
             }
             else
             {
                 Console.WriteLine("SUCCESS! accesskey = {0}", ak);
-                Console.WriteLine("next show messages?");
+                //Console.WriteLine("next show messages?");
 
-                //here is where we call receiver?
-                SynchronousConnectionToReceiver(address, portReci, username, password, ak);
+                while (true)
+                {
 
-                //broadcast messgaes here
+                    //address receiver port so we can send messages
+                    SynchronousConnectionToReceiver(address, portReci, username, password, ak);
 
-                ContinousConnection(address, portBroa, ak);
+                    //broadcast messages here
+                    //ContinousConnection(address, portBroa, ak);
+                    ThreadedConnection(address, portBroa, ak);
+                }
             }
 
 
