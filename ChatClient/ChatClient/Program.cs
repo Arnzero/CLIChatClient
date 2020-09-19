@@ -76,7 +76,7 @@ namespace ChatClient
         }
         static void SynchronousConnectionToReceiver(string address, int port, string username, string password, string key)
         {
-            Console.WriteLine("we in receiver boiz");
+            //Console.WriteLine("we in receiver boiz");
             try
             {
                 TcpClient client = new TcpClient(address, port);
@@ -138,7 +138,7 @@ namespace ChatClient
         }
 
         //A continous connection is the best approach for communication on 3463
-        public static void ContinousConnection(String address, int port)
+        public static void ContinousConnection(String address, int port, string ak)
         {
             TcpClient client;
             BufferedStream stream;
@@ -161,20 +161,27 @@ namespace ChatClient
             }
             while(true)
             {
+                Console.WriteLine("continousConnection established!\n");
                 //TODO: do work!
-                Console.WriteLine("Username: ");
-                string username = Console.ReadLine();
-                Console.WriteLine("Password: ");
-                string password = Console.ReadLine();
 
-                Console.WriteLine("sending credentials...\n");
+                //send ak
+                //send
+                byte[] authBytes = Encoding.UTF8.GetBytes(ak);
+                writer.Write(IPAddress.HostToNetworkOrder(ak.Length));
+                writer.Write(authBytes);
+                // 
+                // //grab name and message
+                int userMessageLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                byte[] userMessageBytes = reader.ReadBytes(userMessageLength);
+                string userMessage = Encoding.UTF8.GetString(userMessageBytes);
 
-                //send auth un and pw
-                writer.Write(IPAddress.HostToNetworkOrder(username.Length));
-                writer.Write(Encoding.UTF8.GetBytes(username));
+                int messageLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
+                byte[] messageBytes = reader.ReadBytes(messageLength);
+                string message = Encoding.UTF8.GetString(messageBytes);
 
-                writer.Write(IPAddress.HostToNetworkOrder(password.Length));
-                writer.Write(Encoding.UTF8.GetBytes(password));
+                Console.WriteLine("{0} says: {1}", userMessage, message);
+
+                
 
             }
         }
@@ -184,9 +191,9 @@ namespace ChatClient
             await Task.Run(() => { SynchronousConnection(address, port, un, pw); });
         }
 
-        public static void ThreadedConnection(string address, int port)
+        public static void ThreadedConnection(string address, int port, string ak)
         {
-            ThreadStart ts = () => { ContinousConnection(address, port); };
+            ThreadStart ts = () => { ContinousConnection(address, port, ak); };
             Thread thread = new Thread(ts);
             thread.Start();
 
@@ -198,8 +205,8 @@ namespace ChatClient
         {
             //adapt code below for comm on port 3461 auth and 3462 receiver
 
-           // string address = "hsu.adamcarter.com";
-            string address = "127.0.0.1";
+            string address = "hsu.adamcarter.com";
+            // address = "127.0.0.1";
             int portAuth = 3461; //authentication
             int portReci = 3462; //receiver
             int portBroa = 3463; //broadcast
@@ -227,11 +234,13 @@ namespace ChatClient
                 Console.WriteLine("SUCCESS! accesskey = {0}", ak);
 
                 //here is where we call receiver?
-                //SynchronousConnectionToReceiver(address, portReci, username, password, ak);
+                SynchronousConnectionToReceiver(address, portReci, username, password, ak);
 
                 //address receiver port so we can send messages
                  SynchronousConnectionToReceiver(address, portReci, username, password,ak);
 
+                //broadcast messages here
+                 ContinousConnection(address, portBroa, ak);
 
             }
             else
@@ -242,6 +251,9 @@ namespace ChatClient
                 //here is where we call receiver?
                 SynchronousConnectionToReceiver(address, portReci, username, password, ak);
 
+                //broadcast messgaes here
+
+                ContinousConnection(address, portBroa, ak);
             }
 
 
