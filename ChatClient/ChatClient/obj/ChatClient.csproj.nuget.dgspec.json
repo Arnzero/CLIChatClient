@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arnze\\source\\repos\\ChatClient\\ChatClient\\ChatClient.csproj": {}
+    "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatClient\\ChatClient\\ChatClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arnze\\source\\repos\\ChatClient\\ChatClient\\ChatClient.csproj": {
+    "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatClient\\ChatClient\\ChatClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arnze\\source\\repos\\ChatClient\\ChatClient\\ChatClient.csproj",
+        "projectUniqueName": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatClient\\ChatClient\\ChatClient.csproj",
         "projectName": "ChatClient",
-        "projectPath": "C:\\Users\\arnze\\source\\repos\\ChatClient\\ChatClient\\ChatClient.csproj",
+        "projectPath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatClient\\ChatClient\\ChatClient.csproj",
         "packagesPath": "C:\\Users\\arnze\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arnze\\source\\repos\\ChatClient\\ChatClient\\obj\\",
+        "outputPath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatClient\\ChatClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arnze\\AppData\\Roaming\\NuGet\\NuGet.Config",

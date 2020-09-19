@@ -76,6 +76,7 @@ namespace ChatClient
         }
         static void SynchronousConnectionToReceiver(string address, int port, string username, string password, string key)
         {
+            Console.WriteLine("we in receiver boiz");
             try
             {
                 TcpClient client = new TcpClient(address, port);
@@ -197,6 +198,7 @@ namespace ChatClient
         {
             //adapt code below for comm on port 3461 auth and 3462 receiver
 
+           // string address = "hsu.adamcarter.com";
             string address = "127.0.0.1";
             int portAuth = 3461; //authentication
             int portReci = 3462; //receiver
@@ -225,8 +227,10 @@ namespace ChatClient
                 Console.WriteLine("SUCCESS! accesskey = {0}", ak);
 
                 //here is where we call receiver?
-                SynchronousConnectionToReceiver(address, portReci, username, password, ak);
+                //SynchronousConnectionToReceiver(address, portReci, username, password, ak);
 
+                //address receiver port so we can send messages
+                 SynchronousConnectionToReceiver(address, portReci, username, password,ak);
 
 
             }

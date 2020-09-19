@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Terminal\\ChatServer.Terminal.csproj",
+      "projectUniqueName": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Terminal\\ChatServer.Terminal.csproj",
       "projectName": "ChatServer",
-      "projectPath": "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Terminal\\ChatServer.Terminal.csproj",
+      "projectPath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Terminal\\ChatServer.Terminal.csproj",
       "packagesPath": "C:\\Users\\arnze\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Terminal\\obj\\",
+      "outputPath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Terminal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arnze\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,8 +52,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Library\\ChatServer.Library.csproj": {
-              "projectPath": "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Library\\ChatServer.Library.csproj"
+            "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Library\\ChatServer.Library.csproj": {
+              "projectPath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Library\\ChatServer.Library.csproj"
             }
           }
         }

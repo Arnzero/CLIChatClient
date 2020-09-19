@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pwSP9wEvKyNJ3Ft2+ulm01q40iXab9AOgC38V4fX1cATUuxDbWGmP4Z2kaVsMskOcfhZVYXgnaPTSnD3lsvNqg==",
+  "dgSpecHash": "WFxkPLVFDGHvWOWTzu1Tho9WiDXsxBcWLDCePGhDl4mnx1v6HmilwDPPVfZNAt6d7kyJnHrVz/kkUKhYMapNnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\arnze\\source\\repos\\ChatClient\\ChatClient\\ChatClient.csproj",
+  "projectFilePath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatClient\\ChatClient\\ChatClient.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

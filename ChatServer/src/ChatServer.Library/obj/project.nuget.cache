@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hmIn3fvLBBW45DognJ0P+p0h1qe/f6qkV0CFi2fJqbP+TMIlmQHaL+IUFoTLKwR+wZ1ntF3EOlMbw62I4DiSQA==",
+  "dgSpecHash": "ttHm4M6wEKCwLLK/rSxeT+yynYUXO1LXQQgcRqrcAR6IjPbiHCCznywjfq10kJfIq8dzICF8Zw69BNFob6yZOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Library\\ChatServer.Library.csproj",
+  "projectFilePath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Library\\ChatServer.Library.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

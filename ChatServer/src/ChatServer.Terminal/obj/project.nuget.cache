@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gpI6HUi49zxIyeYEcsGhUKaCuq20ZThh0YD57IaD2HZ54T334IBcXA6VvUeeCVeqGczwGoE+LP/PSyN3X0akIQ==",
+  "dgSpecHash": "zqRY/GtaIg3x7KKgQuSLIxupkvog13l40h9pZNX+GSHXwx3Ezgblc2ZGumNF9qW54WfW3yS16GQpJ/XiF6T4sg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\arnze\\Desktop\\chat-server\\src\\ChatServer.Terminal\\ChatServer.Terminal.csproj",
+  "projectFilePath": "C:\\Users\\arnze\\Desktop\\CLIChatClient\\ChatServer\\src\\ChatServer.Terminal\\ChatServer.Terminal.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

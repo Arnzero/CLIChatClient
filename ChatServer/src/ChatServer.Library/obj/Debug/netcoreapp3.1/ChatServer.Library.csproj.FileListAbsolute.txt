@@ -7,3 +7,12 @@ C:\Users\arnze\Desktop\chat-server\src\ChatServer.Library\obj\Debug\netcoreapp3.
 C:\Users\arnze\Desktop\chat-server\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.csproj.CoreCompileInputs.cache
 C:\Users\arnze\Desktop\chat-server\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.dll
 C:\Users\arnze\Desktop\chat-server\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.pdb
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\bin\Debug\netcoreapp3.1\ChatServer.Library.deps.json
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\bin\Debug\netcoreapp3.1\ChatServer.Library.dll
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\bin\Debug\netcoreapp3.1\ChatServer.Library.pdb
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.csprojAssemblyReference.cache
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.AssemblyInfoInputs.cache
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.AssemblyInfo.cs
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.csproj.CoreCompileInputs.cache
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.dll
+C:\Users\arnze\Desktop\CLIChatClient\ChatServer\src\ChatServer.Library\obj\Debug\netcoreapp3.1\ChatServer.Library.pdb
