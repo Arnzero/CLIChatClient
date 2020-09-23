@@ -66,8 +66,15 @@ namespace ChatServer.Library
                     string authKey = Encoding.UTF8.GetString(authKeyBytes);
 
                     if (Server.ActiveUsers.ContainsKey(authKey) == true)
-                    { 
-                        while(true)
+                    {
+                        /*
+                        //send back total count first
+                        var hcc = PendingMessages.Count; 
+                        byte[] hccBytes = Encoding.UTF8.GetBytes(hcc.ToString());
+                        writer.Write(IPAddress.HostToNetworkOrder(hccBytes.Length));
+                        writer.Write(hccBytes);
+                        */
+                        while (true)
                         {
                             if(PendingMessages.Count > 0)
                             {
@@ -83,7 +90,8 @@ namespace ChatServer.Library
                             }
                             else
                             {
-                                Thread.Sleep(500);
+                                //break;
+                               Thread.Sleep(500);
                             }
                         }
                     }
