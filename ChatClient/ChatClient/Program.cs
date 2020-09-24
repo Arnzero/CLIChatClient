@@ -80,7 +80,10 @@ namespace ChatClient
         static void SynchronousConnectionToReceiver(string address, int port, string username, string password, string key)
         {
             //Console.WriteLine("we in receiver boiz");
-           // Console.WriteLine("Synchro...\n");
+            // Console.WriteLine("Synchro...\n");
+            //send msg !
+            Console.Write(":> ");
+            string msg = Console.ReadLine();
 
             try
             {
@@ -98,9 +101,7 @@ namespace ChatClient
                     writer.Write(IPAddress.HostToNetworkOrder(key.Length));
                     writer.Write(Encoding.UTF8.GetBytes(key));
 
-                    //send msg !
-                    Console.Write(":> ");
-                    string msg = Console.ReadLine();
+                   
                      writer.Write(IPAddress.HostToNetworkOrder(msg.Length));
                      writer.Write(Encoding.UTF8.GetBytes(msg));
                     //TODO validate
@@ -118,10 +119,10 @@ namespace ChatClient
         //A continous connection is the best approach for communication on 3463
         public static void ContinousConnection(String address, int port, string ak)
         {
-            Console.WriteLine("Async...\n");
-            // Queue<T, T> historyChat = new Queue<T, T>();
+            //Console.WriteLine("Async...\n");
+            
              Queue<string> historyChatNames = new Queue<string>();
-            Queue<string> historyChatMsgs = new Queue<string>();
+            
 
 
 
@@ -129,7 +130,7 @@ namespace ChatClient
             BufferedStream stream;
             BinaryReader reader;
             BinaryWriter writer;
-            int hcc = 1;
+       
             try
             {
                 client = new TcpClient(address, port);
@@ -155,23 +156,12 @@ namespace ChatClient
                 throw ex;
             }
             while (true) 
-            { 
-            
-                //TODO: do work!if (tcpClient.Connected)
+            {
+                // 1 grab message to queue
+                // 2 flush screen
+                // 3 display all messages
 
-                // stream.BufferSize >0
 
-                /*
-                //grab how many messages from broadcaster
-                int historyChatLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
-                byte[] historyChatBytes = reader.ReadBytes(historyChatLength);
-                string historyChatCount = Encoding.UTF8.GetString(historyChatBytes);
-                hcc = int.Parse(historyChatCount);
-                */
-              //  while(hcc> 0)
-                //{
-                   
-                // 
                 // //grab name and message
                 int userMessageLength = IPAddress.NetworkToHostOrder(reader.ReadInt32());
                 byte[] userMessageBytes = reader.ReadBytes(userMessageLength);
@@ -182,8 +172,6 @@ namespace ChatClient
                 string message = Encoding.UTF8.GetString(messageBytes);
 
                 historyChatNames.Enqueue(userMessage +" says: " + message);
-               // historyChatMsgs.Enqueue(message);
-                //Console.WriteLine("\n{0} says: {1}", userMessage, message);
                 Console.Clear();
 
                 foreach(string  n in historyChatNames)
@@ -194,17 +182,6 @@ namespace ChatClient
                 Console.WriteLine(":>");
 
             }
-
-
-            // 1 add message to queue
-            // 2 flush screen
-            // 3 display all messages
-            //       hcc--;
-            // }
-
-            // break;
-
-
         }
 
         static async Task TaskedConnection(string address, int port, string un, string pw)
@@ -246,7 +223,7 @@ namespace ChatClient
 
 
             // call receiver
-            SynchronousConnectionToReceiver(address, portReci, username, password, ak);
+            //SynchronousConnectionToReceiver(address, portReci, username, password, ak);
             // call broadcast // call async and have it save to a DS
             // ContinousConnection(address, portBroa, ak);
             ThreadedConnection(address, portBroa, ak);
